@@ -23,7 +23,7 @@ Post.propTypes = {
   body: PropTypes.string,
   editable: PropTypes.bool,
   title: PropTypes.string.isRequired,
-  userId: PropTypes.string.isRequired,
+  userId: PropTypes.number.isRequired,
 };
 
 export default Post;
