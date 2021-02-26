@@ -1,20 +1,20 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import Posts from "./pages/Posts/Posts";
 import { getArticles } from "./redux/actions/index";
 
 function App() {
-  const articles = useSelector((state) => state.articles);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getArticles());
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(articles);
-  }, [articles]);
-
-  return <div className="App"></div>;
+  return (
+    <div>
+      <Posts />
+    </div>
+  );
 }
 
 export default App;
