@@ -4,13 +4,14 @@ import { getArticlesByUserId } from "../../redux/actions/index";
 import Post from "../Post/Post";
 
 const OtherPosts = () => {
+  const articles = useSelector((state) => state.articles);
   const userArticles = useSelector((state) => state.userArticles);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getArticlesByUserId(1));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [articles]);
 
   return (
     <div className="col-sm-7">
@@ -22,7 +23,7 @@ const OtherPosts = () => {
       {userArticles.length ? (
         <>
           {userArticles.map((article) => (
-            <Post {...article} key={article.id} />
+            <Post {...article} key={article.id} editable/>
           ))}
         </>
       ) : (

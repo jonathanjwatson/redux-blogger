@@ -4,13 +4,14 @@ import { getArticlesExcludeUserId } from "../../redux/actions/index";
 import Post from "../Post/Post";
 
 const OtherPosts = () => {
+  const articles = useSelector((state) => state.articles);
   const otherArticles = useSelector((state) => state.otherArticles);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getArticlesExcludeUserId(1));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [articles]);
 
   return (
     <div className="col-sm-5">
